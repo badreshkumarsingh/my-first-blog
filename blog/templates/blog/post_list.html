@@ -1,40 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Badresh's blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Django Bady Blog</a></h1>
-        </header>
-
-        {% for post in posts %}
-            <article>
-                <time>published: {{ post.published_date }}</time>
-                <h3><a href="">{{ post.title }}</a></h3>
-                <p>{{ post.text|linebreaksbr }}</p>
-            </article>
-        {% endfor %}
-
-        <article>
-            <h2><a href=""> </a></h2>
+{% extends 'blog/base.html' %}
+                
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <time class="date">
+                {{ post.published_date }}
+            </time>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </article>
-
-        {{ posts }}
-
-        <article>
-            <time>published: 26.11.2023, 16:54</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Welcome to the world of Dhamma!</p>
-        </article>
-
-        <article>
-            <time>published: 26.11.2023, 16:54</time>
-            <h2><a href="">My second post</a></h2>
-            <p>(Most) Welcome to the world of Dhamma!</p>
-        </article>
-
-        <p>Hi there Badresh!</p>
-        <p>It works!</p>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
