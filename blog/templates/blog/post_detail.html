@@ -4,15 +4,24 @@
     <article class="post">
         <aside class="actions">
             {% if user.is_authenticated %}
-                <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">
+                <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">Edit
                     {% include './icons/pencil-fill.svg' %}
+                </a>
+                <a class="btn btn-secondary" href="{% url 'post_remove' pk=post.pk %}">Delete
+                    {% include './icons/trash2-fill.svg' %}
+                    <span class="glyphicon glyphicon-remove">
+                    </span>
                 </a>
             {% endif %}
         </aside>
         {% if post.published_date %}
-            <time class="date">
+            <div class="date">published:
                 {{ post.published_date }}
-            </time>
+            </div>
+        {% else %}
+            <a class="btn btn-secondary" href="{% url 'post_publish' pk=post.pk %}">Publish
+                {% include './icons/cloud-check-fill.svg' %}
+            </a>
         {% endif %}
         <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr }}</p>
