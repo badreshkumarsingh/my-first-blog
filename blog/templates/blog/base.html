@@ -13,21 +13,31 @@
             <div class="container">
                 {% if user.is_authenticated %}
                     <aside class="actions">
-                        <a class="btn btn-tertiary" href="{% url 'post_new' %}" class="top-menu" >Add Post
+                        <a class="btn btn-tertiary" href="{% url 'post_new' %}" >Add Post
                             {% include './icons/file-earmark-plus.svg' %}
+                            <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </aside>
-                    <a href="{% url 'post_draft_list' %}" class="top-menu">
+                    <a class="btn btn-tertiary" href="{% url 'post_draft_list' %}" class="top-menu">Draft List
                         <span class="glyphicon glyphicon-edit">
                         </span>
                     </a>
+                    <small><a class="btn btn-tertiary" href="{% url 'logout' %}">Log out {% include './icons/power.svg' %}</a>
+                    </small>
+                    <p class="top-menu">Hello {{ user.username }} </p>
+                        
+                    
+
+                {% else %}
+                    <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+
                 {% endif %}
                 <h1><a href="/">Django Bady Blog</a></h1>
             </div>
         </header>
-        <main class="container">
+        <main class="content container">
             <div class="row">
-                <div class="col">
+                <div class="col-md-8">
                     {% block content %}
                     {% endblock %}
                 </div>
