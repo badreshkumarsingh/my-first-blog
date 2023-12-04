@@ -36,6 +36,7 @@ h4 {
 
 .date {
     color: #828282;
+    margin-right: 5px;
 }
 
 .save {
@@ -52,8 +53,7 @@ h4 {
 .top-menu:visited {
     color: #ffffff;
     float: right;
-    font-size: 26pt;
-    font-family: 'Lobster', cursive;
+    font-size: 15pt;
     margin-right: 20px;
 }
 
@@ -77,9 +77,23 @@ h4 {
     color: #C25100;
     background: none;
     border-color: #C25100;
+    margin-right: 5px;
 }
 
 .btn-secondary:hover {
     color: #FFFFFF;
     background-color: #C25100;
+}
+
+.btn-tertiary {
+    color: #C25100;
+    float: right;
+    border-color: #C25100;
+    background-color: #ffffff;
+}
+
+.btn-tertiary:hover {
+    color: #FFFFFF;
+    background-color: #C25100;
+    border-color: #ffffff;
 }
